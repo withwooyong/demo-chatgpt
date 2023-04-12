@@ -6,10 +6,13 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource samples");
 });
 
-router.get("/get/demo", function (req, res) {
-  req.json();
+router.get("/get/demo/:searchword", function (req, res) {
+  console.log("--------------- 1");
+  var params = req.params;
+  console.log(params.searchword);
+
   res.status(200).json({
-    message: "call get api demo",
+    message: "call get api demo " + params.searchword,
   });
 });
 
